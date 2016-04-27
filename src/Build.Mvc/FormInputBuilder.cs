@@ -26,6 +26,11 @@ namespace Build.Mvc
     /// <typeparam name="TProperty"> The type of the property. </typeparam>
     public abstract class FormInputBuilder<TModel, TProperty> : FormInputBuilder, IHtmlHelper<TModel>
     {
+        protected FormInputBuilder(HtmlHelper<TModel> htmlHelper) : base(htmlHelper)
+        {
+            Html = htmlHelper;
+        }
+
         /// <summary>
         /// Gets or sets the init expression.
         /// </summary>
@@ -40,11 +45,10 @@ namespace Build.Mvc
     /// <summary>
     /// An abstract class for all HtmlBuilders that create HTML form markup.
     /// </summary>
-    public abstract class FormInputBuilder : HtmlBuilder, IFormInputBuilder, IHtmlHelper
+    public abstract class FormInputBuilder : HtmlBuilder, IFormInputBuilder
     {
-        /// <summary>
-        /// Gets or sets the HtmlHelper
-        /// </summary>
-        public virtual HtmlHelper Html { get; set; }
+        protected FormInputBuilder(HtmlHelper htmlHelper) : base(htmlHelper)
+        {
+        }
     }
 }

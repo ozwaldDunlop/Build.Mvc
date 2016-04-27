@@ -13,6 +13,8 @@
 // It is pitch black. You are likely to be eaten by a grue.
 // 
 
+using System.Web.Mvc;
+
 namespace Build.Mvc.Html
 {
     using System.Web.Mvc.Html;
@@ -30,6 +32,10 @@ namespace Build.Mvc.Html
         {
             return this.ApplySurroundWithTemplate(Html.DropDownListFor(InitExpression, this.SelectList(), this.OptionLabel(), HtmlAttributes).ToHtmlStringSafe());
         }
+
+        public DropDownListBuilder(HtmlHelper<TModel> htmlHelper) : base(htmlHelper)
+        {
+        }
     }
 
     /// <summary>
@@ -40,6 +46,10 @@ namespace Build.Mvc.Html
         public override string ToHtmlString()
         {
             return this.ApplySurroundWithTemplate(Html.DropDownList(this.Name(), this.SelectList(), this.OptionLabel(), HtmlAttributes).ToHtmlStringSafe());
+        }
+
+        public DropDownListBuilder(HtmlHelper htmlHelper) : base(htmlHelper)
+        {
         }
     }
 }

@@ -24,6 +24,10 @@ namespace Build.Mvc.TwitterBootstrap
             CheckBoxModifier = checkBoxModifier;
             return this;
         }
+
+        public CheckboxLabelBuilder(HtmlHelper<TModel> htmlHelper) : base(htmlHelper)
+        {
+        }
     }
 
     public class CheckboxLabelBuilder : FormInputBuilder, ILabelBuilder, IExpressionBuilder, ICheckBoxBuilder
@@ -65,6 +69,10 @@ namespace Build.Mvc.TwitterBootstrap
             {
                 HtmlAttributes.Remove("id");
             }
+        }
+
+        public CheckboxLabelBuilder(HtmlHelper htmlHelper) : base(htmlHelper)
+        {
         }
     }
 }

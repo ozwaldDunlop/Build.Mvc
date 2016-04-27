@@ -6,8 +6,8 @@ namespace Build.Mvc.TwitterBootstrap
 {
     public class BootstrapCheckBoxFormGroupBuilder : BootstrapFormGroupBuilder<CheckBoxFormGroupConfig>
     {
-        public BootstrapCheckBoxFormGroupBuilder(HtmlHelper html, CheckBoxFormGroupConfig config)
-            : base(html, config)
+        public BootstrapCheckBoxFormGroupBuilder(HtmlHelper htmlHelper, CheckBoxFormGroupConfig config)
+            : base(htmlHelper, config)
         {
         }
 
@@ -19,8 +19,8 @@ namespace Build.Mvc.TwitterBootstrap
 
     public class BootstrapCheckBoxFormGroupBuilder<TModel> : BootstrapFormGroupBuilder<CheckBoxFormGroupConfig<TModel>>
     {
-        public BootstrapCheckBoxFormGroupBuilder(HtmlHelper html, CheckBoxFormGroupConfig<TModel> config)
-            : base(html, config)
+        public BootstrapCheckBoxFormGroupBuilder(HtmlHelper htmlHelper, CheckBoxFormGroupConfig<TModel> config)
+            : base(htmlHelper, config)
         {
         }
 

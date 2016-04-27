@@ -39,7 +39,7 @@ namespace Build.Mvc.Html
 
         public static IMvcFormBuilder BuildForm(this HtmlHelper htmlHelper)
         {
-            return new MvcFormBuilder {Html = htmlHelper};
+            return new MvcFormBuilder(htmlHelper);
         }
 
         public static IMvcFormBuilder BuildForm(this HtmlHelper htmlHelper,
@@ -150,7 +150,7 @@ namespace Build.Mvc.Html
             FormMethod method,
             IDictionary<string, object> htmlAttributes)
         {
-            return new MvcFormBuilder {Html = htmlHelper, RouteValues = routeValues, FormMethod = method}.ActionName(actionName).ControllerName(controllerName).Attr(htmlAttributes);
+            return new MvcFormBuilder(htmlHelper) {RouteValues = routeValues, FormMethod = method}.ActionName(actionName).ControllerName(controllerName).Attr(htmlAttributes);
         }
 
         #endregion
@@ -243,7 +243,7 @@ namespace Build.Mvc.Html
             FormMethod method,
             IDictionary<string, object> htmlAttributes)
         {
-            return new MvcFormBuilder {Html = htmlHelper, RouteValues = routeValues, FormMethod = method}.RouteName(routeName).Attr(htmlAttributes).IncludeImplicitMvcValues(false);
+            return new MvcFormBuilder(htmlHelper) {RouteValues = routeValues, FormMethod = method}.RouteName(routeName).Attr(htmlAttributes).IncludeImplicitMvcValues(false);
         }
 
         #endregion

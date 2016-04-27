@@ -150,5 +150,9 @@ namespace Build.Mvc.TwitterBootstrap
                 sb.Append(ButtonTextSpace);
             }
         }
+
+        public BtnBuilder(HtmlHelper htmlHelper) : base(htmlHelper)
+        {
+        }
     }
 }

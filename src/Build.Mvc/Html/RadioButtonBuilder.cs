@@ -12,6 +12,8 @@
 // 
 // It is pitch black. You are likely to be eaten by a grue.
 // 
+
+using System.Web.Mvc;
 using System.Web.Mvc.Html;
 
 namespace Build.Mvc.Html
@@ -27,6 +29,10 @@ namespace Build.Mvc.Html
         {
             return Html.RadioButtonFor(InitExpression, this.Val(), HtmlAttributes).ToHtmlStringSafe();
         }
+
+        public RadioButtonBuilder(HtmlHelper<TModel> htmlHelper) : base(htmlHelper)
+        {
+        }
     }
 
     /// <summary>
@@ -37,6 +43,10 @@ namespace Build.Mvc.Html
         public override string ToHtmlString()
         {
             return Html.RadioButton(this.Name(), this.Val(), this.IsChecked().GetValueOrDefault(), HtmlAttributes).ToHtmlStringSafe();
+        }
+
+        public RadioButtonBuilder(HtmlHelper htmlHelper) : base(htmlHelper)
+        {
         }
     }
 }

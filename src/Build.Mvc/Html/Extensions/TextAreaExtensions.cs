@@ -101,7 +101,7 @@ namespace Build.Mvc.Html
                                                     string value,
                                                     IDictionary<string, object> htmlAttributes)
         {
-            return new TextBoxBuilder {Html = htmlHelper}.Multiline().Named(name).Val(value).Attr(htmlAttributes);
+            return new TextBoxBuilder(htmlHelper).Multiline().Named(name).Val(value).Attr(htmlAttributes);
         }
 
         /// <summary>
@@ -141,7 +141,7 @@ namespace Build.Mvc.Html
                                                     int columns,
                                                     IDictionary<string, object> htmlAttributes)
         {
-            return new TextBoxBuilder {Html = htmlHelper}.Multiline(rows, columns).Named(name).Val(value).Attr(htmlAttributes);
+            return new TextBoxBuilder(htmlHelper).Multiline(rows, columns).Named(name).Val(value).Attr(htmlAttributes);
         }
 
         /// <summary>
@@ -253,7 +253,7 @@ namespace Build.Mvc.Html
                                                                           int columns,
                                                                           IDictionary<string, object> htmlAttributes)
         {
-            return new TextBoxBuilder<TModel, TProperty> {Html = htmlHelper, InitExpression = expression}.Multiline(rows, columns).Attr(htmlAttributes);
+            return new TextBoxBuilder<TModel, TProperty> (htmlHelper) { InitExpression = expression}.Multiline(rows, columns).Attr(htmlAttributes);
         }
 
         /// <summary>
@@ -274,7 +274,7 @@ namespace Build.Mvc.Html
                                                                           Expression<Func<TModel, TProperty>> expression,
                                                                           IDictionary<string, object> htmlAttributes)
         {
-            return new TextBoxBuilder<TModel, TProperty> {Html = htmlHelper, InitExpression = expression}.Multiline().Attr(htmlAttributes);
+            return new TextBoxBuilder<TModel, TProperty> (htmlHelper){InitExpression = expression}.Multiline().Attr(htmlAttributes);
         }
     }
 }

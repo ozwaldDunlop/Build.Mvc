@@ -12,6 +12,9 @@
 // 
 // It is pitch black. You are likely to be eaten by a grue.
 // 
+
+using System.Web.Mvc;
+
 namespace Build.Mvc
 {
     /// <summary>
@@ -19,6 +22,10 @@ namespace Build.Mvc
     /// </summary>
     public abstract class HtmlBuilder : HtmlBuilderState, IHtmlBuilder
     {
+        protected HtmlBuilder(HtmlHelper htmlHelper) :base(htmlHelper)
+        {
+        }
+
         public abstract string ToHtmlString();
 
         public override string ToString()

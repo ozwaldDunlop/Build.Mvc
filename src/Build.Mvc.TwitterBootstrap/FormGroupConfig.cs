@@ -41,7 +41,7 @@ namespace Build.Mvc.TwitterBootstrap
 
     public abstract class FormGroupConfig : HtmlBuilderState, IHorizontalFormSizing
     {
-        protected FormGroupConfig(HtmlHelper html)
+        protected FormGroupConfig(HtmlHelper html) : base(html)
         {
             Html = html;
             this.UpdateSize(FormBuilderContext.HorizontalFormSizing);

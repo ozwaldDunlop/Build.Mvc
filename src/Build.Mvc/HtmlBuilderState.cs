@@ -13,6 +13,8 @@
 // It is pitch black. You are likely to be eaten by a grue.
 // 
 
+using System.Web.Mvc;
+
 namespace Build.Mvc
 {
     using System;
@@ -27,6 +29,11 @@ namespace Build.Mvc
         private IDictionary<string, object> _htmlAttributes;
 
         private IDictionary<string, object> _instanceData;
+
+        protected HtmlBuilderState(HtmlHelper htmlHelper)
+        {
+            Html = htmlHelper;
+        }
 
         /// <summary>
         /// Tracks the visible HTML attributes for the current builder instance.
@@ -46,5 +53,10 @@ namespace Build.Mvc
         {
             get { return LazyInitializer.EnsureInitialized(ref _instanceData, () => new Dictionary<string, object>(StringComparer.CurrentCultureIgnoreCase)); }
         }
+
+        /// <summary>
+        /// Gets or sets the HtmlHelper
+        /// </summary>
+        public virtual HtmlHelper Html { get; set; }
     }
 }

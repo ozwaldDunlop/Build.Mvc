@@ -12,6 +12,8 @@
 // 
 // It is pitch black. You are likely to be eaten by a grue.
 // 
+
+using System.Web.Mvc;
 using System.Web.Mvc.Html;
 
 namespace Build.Mvc.Html
@@ -26,5 +28,9 @@ namespace Build.Mvc.Html
         }
 
         #endregion
+
+        public ValidationSummaryBuilder(HtmlHelper htmlHelper) : base(htmlHelper)
+        {
+        }
     }
 }

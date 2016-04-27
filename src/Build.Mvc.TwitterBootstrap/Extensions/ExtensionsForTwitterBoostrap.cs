@@ -13,7 +13,7 @@ namespace Build.Mvc.TwitterBootstrap
         /// </summary>
         public static IBtnBuilder Btn(this HtmlHelper html, string buttonText = null)
         {
-            return new BtnBuilder().Val(buttonText);
+            return new BtnBuilder(html).Val(buttonText);
         }
 
         /// <summary>

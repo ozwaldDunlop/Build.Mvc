@@ -23,21 +23,21 @@ namespace Build.Mvc.Html
         public static IEditorBuilder BuildEditor(this HtmlHelper html,
                                                  string expression)
         {
-            return new EditorBuilder {Html = html}.Expression(expression);
+            return new EditorBuilder(html).Expression(expression);
         }
 
         public static IEditorBuilder BuildEditor(this HtmlHelper html,
                                                  string expression,
                                                  object additionalViewData)
         {
-            return new EditorBuilder {Html = html}.Expression(expression).AdditionalViewData(additionalViewData);
+            return new EditorBuilder (html).Expression(expression).AdditionalViewData(additionalViewData);
         }
 
         public static IEditorBuilder BuildEditor(this HtmlHelper html,
                                                  string expression,
                                                  string templateName)
         {
-            return new EditorBuilder {Html = html}.Expression(expression).TemplateName(templateName);
+            return new EditorBuilder (html).Expression(expression).TemplateName(templateName);
         }
 
         public static IEditorBuilder BuildEditor(this HtmlHelper html,
@@ -45,7 +45,7 @@ namespace Build.Mvc.Html
                                                  string templateName,
                                                  object additionalViewData)
         {
-            return new EditorBuilder {Html = html}.Expression(expression).TemplateName(templateName).AdditionalViewData(additionalViewData);
+            return new EditorBuilder (html).Expression(expression).TemplateName(templateName).AdditionalViewData(additionalViewData);
         }
 
         public static IEditorBuilder BuildEditor(this HtmlHelper html,
@@ -53,7 +53,7 @@ namespace Build.Mvc.Html
                                                  string templateName,
                                                  string htmlFieldName)
         {
-            return new EditorBuilder {Html = html}.Expression(expression).TemplateName(templateName).HtmlFieldName(htmlFieldName);
+            return new EditorBuilder (html).Expression(expression).TemplateName(templateName).HtmlFieldName(htmlFieldName);
         }
 
         public static IEditorBuilder BuildEditor(this HtmlHelper html,
@@ -62,27 +62,27 @@ namespace Build.Mvc.Html
                                                  string htmlFieldName,
                                                  object additionalViewData)
         {
-            return new EditorBuilder {Html = html}.Expression(expression).TemplateName(templateName).HtmlFieldName(htmlFieldName).AdditionalViewData(additionalViewData);
+            return new EditorBuilder (html).Expression(expression).TemplateName(templateName).HtmlFieldName(htmlFieldName).AdditionalViewData(additionalViewData);
         }
 
         public static IEditorBuilder BuildEditorFor<TModel, TValue>(this HtmlHelper<TModel> html,
                                                                     Expression<Func<TModel, TValue>> expression)
         {
-            return new EditorBuilder<TModel, TValue> {Html = html, InitExpression = expression};
+            return new EditorBuilder<TModel, TValue>(html) {InitExpression = expression};
         }
 
         public static IEditorBuilder BuildEditorFor<TModel, TValue>(this HtmlHelper<TModel> html,
                                                                     Expression<Func<TModel, TValue>> expression,
                                                                     object additionalViewData)
         {
-            return new EditorBuilder<TModel, TValue> {Html = html, InitExpression = expression}.AdditionalViewData(additionalViewData);
+            return new EditorBuilder<TModel, TValue>(html) {InitExpression = expression}.AdditionalViewData(additionalViewData);
         }
 
         public static IEditorBuilder BuildEditorFor<TModel, TValue>(this HtmlHelper<TModel> html,
                                                                     Expression<Func<TModel, TValue>> expression,
                                                                     string templateName)
         {
-            return new EditorBuilder<TModel, TValue> {Html = html, InitExpression = expression}.TemplateName(templateName);
+            return new EditorBuilder<TModel, TValue>(html) { InitExpression = expression}.TemplateName(templateName);
         }
 
         public static IEditorBuilder BuildEditorFor<TModel, TValue>(this HtmlHelper<TModel> html,
@@ -90,7 +90,7 @@ namespace Build.Mvc.Html
                                                                     string templateName,
                                                                     object additionalViewData)
         {
-            return new EditorBuilder<TModel, TValue> {Html = html, InitExpression = expression}.TemplateName(templateName).AdditionalViewData(additionalViewData);
+            return new EditorBuilder<TModel, TValue>(html) { InitExpression = expression}.TemplateName(templateName).AdditionalViewData(additionalViewData);
         }
 
         public static IEditorBuilder BuildEditorFor<TModel, TValue>(this HtmlHelper<TModel> html,
@@ -98,7 +98,7 @@ namespace Build.Mvc.Html
                                                                     string templateName,
                                                                     string htmlFieldName)
         {
-            return new EditorBuilder<TModel, TValue> {Html = html, InitExpression = expression}.TemplateName(templateName).HtmlFieldName(htmlFieldName);
+            return new EditorBuilder<TModel, TValue>(html) { InitExpression = expression}.TemplateName(templateName).HtmlFieldName(htmlFieldName);
         }
 
         public static IEditorBuilder BuildEditorFor<TModel, TValue>(this HtmlHelper<TModel> html,
@@ -107,7 +107,7 @@ namespace Build.Mvc.Html
                                                                     string htmlFieldName,
                                                                     object additionalViewData)
         {
-            return new EditorBuilder<TModel, TValue> {Html = html, InitExpression = expression}.TemplateName(templateName).HtmlFieldName(htmlFieldName).AdditionalViewData(additionalViewData);
+            return new EditorBuilder<TModel, TValue>(html) { InitExpression = expression}.TemplateName(templateName).HtmlFieldName(htmlFieldName).AdditionalViewData(additionalViewData);
         }
     }
 }

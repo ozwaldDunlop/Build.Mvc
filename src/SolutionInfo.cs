@@ -1,6 +1,6 @@
 using System.Reflection;
 
 [assembly: AssemblyDescription("Build.MVC Helper Methods")]
-[assembly: AssemblyCompany("Jeremy Bell")]
+[assembly: AssemblyCompany("Jeremy Bell with Additions by Oliver Dunthorne")]
 [assembly: AssemblyProduct("Build.Mvc")]
-[assembly: AssemblyVersion("2014.05.26.0")]
+[assembly: AssemblyVersion("2016.04.27.0")]

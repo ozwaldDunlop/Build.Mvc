@@ -26,7 +26,7 @@ namespace Build.Mvc.Html
         /// </summary>
         /// <param name="tagName">Name of the tag.</param>
         /// <param name="renderMode">The render mode.</param>
-        public HtmlTagBuilder(string tagName, TagRenderMode renderMode = TagRenderMode.Normal)
+        public HtmlTagBuilder(HtmlHelper htmlHelper, string tagName, TagRenderMode renderMode = TagRenderMode.Normal): base(htmlHelper)
         {
             InternalBuilder = new TagBuilder(tagName);
             RenderMode = renderMode;
@@ -39,11 +39,6 @@ namespace Build.Mvc.Html
         /// The render mode.
         /// </value>
         public TagRenderMode RenderMode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the HtmlHelper
-        /// </summary>
-        public virtual HtmlHelper Html { get; set; }
 
         public TagBuilder InternalBuilder { get; private set; }
 

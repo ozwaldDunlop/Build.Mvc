@@ -8,14 +8,12 @@ namespace Build.Mvc.TwitterBootstrap
 {
     public abstract class BootstrapFormGroupBuilder<TFormGroupConfig> : HtmlBuilder where TFormGroupConfig : FormGroupConfig
     {
-        protected BootstrapFormGroupBuilder(HtmlHelper html, TFormGroupConfig config)
+        protected BootstrapFormGroupBuilder(HtmlHelper htmlHelper, TFormGroupConfig config) :base(htmlHelper)
         {
-            Html = html;
+            Html = htmlHelper;
             Config = config;
         }
-
-        protected HtmlHelper Html { get; set; }
-
+        
         protected TFormGroupConfig Config { get; set; }
 
         public override string ToHtmlString()

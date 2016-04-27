@@ -13,6 +13,8 @@
 // It is pitch black. You are likely to be eaten by a grue.
 // 
 
+using System.Web.Mvc;
+
 namespace Build.Mvc.Html
 {
     using Build.Mvc.Helpers;
@@ -28,6 +30,10 @@ namespace Build.Mvc.Html
         {
             return this.ApplySurroundWithTemplate(TextBoxBuilderHelper.BuildTextBoxFor(this).ToHtmlStringSafe());
         }
+
+        public TextBoxBuilder(HtmlHelper<TModel> htmlHelper) : base(htmlHelper)
+        {
+        }
     }
 
     /// <summary>
@@ -38,6 +44,10 @@ namespace Build.Mvc.Html
         public override string ToHtmlString()
         {
             return this.ApplySurroundWithTemplate(TextBoxBuilderHelper.BuildTextBox(this).ToHtmlStringSafe());
+        }
+
+        public TextBoxBuilder(HtmlHelper htmlHelper) : base(htmlHelper)
+        {
         }
     }
 }

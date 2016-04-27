@@ -193,7 +193,7 @@ namespace Build.Mvc.Html
                                                            string optionLabel,
                                                            IDictionary<string, object> htmlAttributes)
         {
-            return new DropDownListBuilder {Html = htmlHelper}.Named(name).SelectList(selectList).OptionLabel(optionLabel).Attr(htmlAttributes);
+            return new DropDownListBuilder(htmlHelper).Named(name).SelectList(selectList).OptionLabel(optionLabel).Attr(htmlAttributes);
         }
 
         /// <summary>
@@ -359,9 +359,8 @@ namespace Build.Mvc.Html
                                                                                  string optionLabel,
                                                                                  IDictionary<string, object> htmlAttributes)
         {
-            return new DropDownListBuilder<TModel, TProperty>
+            return new DropDownListBuilder<TModel, TProperty> (htmlHelper)
                        {
-                           Html = htmlHelper,
                            InitExpression = expression
                        }.
                 SelectList(selectList).

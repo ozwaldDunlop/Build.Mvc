@@ -13,9 +13,15 @@
 // It is pitch black. You are likely to be eaten by a grue.
 // 
 
+using System.Web.Mvc;
+
 namespace Build.Mvc
 {
-    public interface IHtmlBuilderState : IHtmlAttributes, IInstanceData
+    public interface IHtmlBuilderState : IHtmlAttributes, IInstanceData, IHtmlHelper
     {
+        /// <summary>
+        /// Gets or sets the HtmlHelper
+        /// </summary>
+        HtmlHelper Html { get; set; }
     }
 }

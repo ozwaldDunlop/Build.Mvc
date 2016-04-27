@@ -36,7 +36,7 @@ namespace Build.Mvc.Html
                                                      string name,
                                                      IDictionary<string, object> htmlAttributes)
         {
-            return new CheckBoxBuilder {Html = htmlHelper}.Named(name).Attr(htmlAttributes);
+            return new CheckBoxBuilder(htmlHelper).Named(name).Attr(htmlAttributes);
         }
 
         public static ICheckBoxBuilder BuildCheckBox(this HtmlHelper htmlHelper,
@@ -65,7 +65,7 @@ namespace Build.Mvc.Html
                                                      bool isChecked,
                                                      IDictionary<string, object> htmlAttributes)
         {
-            return new CheckBoxBuilder {Html = htmlHelper}.Named(name).Attr(htmlAttributes).IsChecked(isChecked);
+            return new CheckBoxBuilder(htmlHelper).Named(name).Attr(htmlAttributes).IsChecked(isChecked);
         }
 
         public static ICheckBoxBuilder BuildCheckBoxFor<TModel>(this HtmlHelper<TModel> htmlHelper,
@@ -76,7 +76,7 @@ namespace Build.Mvc.Html
             {
                 throw new ArgumentNullException("expression");
             }
-            return new CheckBoxBuilder<TModel> {Html = htmlHelper, InitExpression = expression}.Attr(htmlAttributes);
+            return new CheckBoxBuilder<TModel>(htmlHelper) {InitExpression = expression}.Attr(htmlAttributes);
         }
 
         public static ICheckBoxBuilder BuildCheckBoxFor<TModel>(this HtmlHelper<TModel> htmlHelper,
@@ -109,7 +109,7 @@ namespace Build.Mvc.Html
                                                  object value,
                                                  IDictionary<string, object> htmlAttributes)
         {
-            return new HiddenBuilder {Html = htmlHelper}.Named(name).Val(value).Attr(htmlAttributes);
+            return new HiddenBuilder(htmlHelper).Named(name).Val(value).Attr(htmlAttributes);
         }
 
         public static IHiddenBuilder BuildHidden(this HtmlHelper htmlHelper,
@@ -137,7 +137,7 @@ namespace Build.Mvc.Html
                                                                        Expression<Func<TModel, TProperty>> expression,
                                                                        IDictionary<string, object> htmlAttributes)
         {
-            return new HiddenBuilder<TModel, TProperty> {Html = htmlHelper, InitExpression = expression}.Attr(htmlAttributes);
+            return new HiddenBuilder<TModel, TProperty>(htmlHelper) {InitExpression = expression}.Attr(htmlAttributes);
         }
 
         public static IHiddenBuilder BuildHiddenFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper,
@@ -172,7 +172,7 @@ namespace Build.Mvc.Html
                                                     object value,
                                                     IDictionary<string, object> htmlAttributes)
         {
-            return new TextBoxBuilder {Html = htmlHelper}.Password().Named(name).Val(value).Attr(htmlAttributes);
+            return new TextBoxBuilder(htmlHelper).Password().Named(name).Val(value).Attr(htmlAttributes);
         }
 
         public static ITextBoxBuilder BuildPassword(this HtmlHelper htmlHelper,
@@ -193,7 +193,7 @@ namespace Build.Mvc.Html
                                                                           Expression<Func<TModel, TProperty>> expression,
                                                                           IDictionary<string, object> htmlAttributes)
         {
-            return new TextBoxBuilder<TModel, TProperty> {Html = htmlHelper, InitExpression = expression}.Password().Attr(htmlAttributes);
+            return new TextBoxBuilder<TModel, TProperty>(htmlHelper) {InitExpression = expression}.Password().Attr(htmlAttributes);
         }
 
         public static ITextBoxBuilder BuildPasswordFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper,
@@ -215,7 +215,7 @@ namespace Build.Mvc.Html
                                                            object value,
                                                            IDictionary<string, object> htmlAttributes)
         {
-            return new RadioButtonBuilder {Html = htmlHelper}.Named(name).Attr(htmlAttributes).Val(value);
+            return new RadioButtonBuilder(htmlHelper).Named(name).Attr(htmlAttributes).Val(value);
         }
 
         public static IRadioButtonBuilder BuildRadioButton(this HtmlHelper htmlHelper,
@@ -239,7 +239,7 @@ namespace Build.Mvc.Html
                                                            bool isChecked,
                                                            IDictionary<string, object> htmlAttributes)
         {
-            return new RadioButtonBuilder {Html = htmlHelper}.Named(name).Attr(htmlAttributes).Val(value).IsChecked(isChecked);
+            return new RadioButtonBuilder(htmlHelper).Named(name).Attr(htmlAttributes).Val(value).IsChecked(isChecked);
         }
 
         public static IRadioButtonBuilder BuildRadioButton(this HtmlHelper htmlHelper,
@@ -271,7 +271,7 @@ namespace Build.Mvc.Html
                                                                                  object value,
                                                                                  IDictionary<string, object> htmlAttributes)
         {
-            return new RadioButtonBuilder<TModel, TProperty> {Html = htmlHelper, InitExpression = expression}.Val(value).Attr(htmlAttributes);
+            return new RadioButtonBuilder<TModel, TProperty>(htmlHelper) { InitExpression = expression}.Val(value).Attr(htmlAttributes);
         }
 
         public static IRadioButtonBuilder BuildRadioButtonFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper,
@@ -308,7 +308,7 @@ namespace Build.Mvc.Html
                                                    string format,
                                                    IDictionary<string, object> htmlAttributes)
         {
-            return new TextBoxBuilder {Html = htmlHelper}.Singleline().Named(name).Val(value).Format(format).Attr(htmlAttributes);
+            return new TextBoxBuilder(htmlHelper) .Singleline().Named(name).Val(value).Format(format).Attr(htmlAttributes);
         }
 
         public static ITextBoxBuilder BuildTextBox(this HtmlHelper htmlHelper,
@@ -354,7 +354,7 @@ namespace Build.Mvc.Html
                                                                          string format,
                                                                          IDictionary<string, object> htmlAttributes)
         {
-            return new TextBoxBuilder<TModel, TProperty> {Html = htmlHelper, InitExpression = expression}.Singleline().Format(format).Attr(htmlAttributes);
+            return new TextBoxBuilder<TModel, TProperty>(htmlHelper) {InitExpression = expression}.Singleline().Format(format).Attr(htmlAttributes);
         }
 
         public static ITextBoxBuilder BuildTextBoxFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper,

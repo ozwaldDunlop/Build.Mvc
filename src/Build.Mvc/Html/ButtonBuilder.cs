@@ -23,6 +23,10 @@ namespace Build.Mvc.Html
     /// </summary>
     public class ButtonBuilder : FormInputBuilder, IButtonBuilder
     {
+        public ButtonBuilder(HtmlHelper htmlHelper) : base(htmlHelper)
+        {
+        }
+
         public override string ToHtmlString()
         {
             UIStates uiState = this.UIState();

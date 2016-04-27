@@ -29,7 +29,7 @@ namespace Build.Mvc.Html
                                                string tagName,
                                                TagRenderMode renderMode)
         {
-            return new HtmlTagBuilder(tagName, renderMode) {Html = htmlHelper};
+            return new HtmlTagBuilder(htmlHelper, tagName, renderMode);
         }
 
         /// <summary>

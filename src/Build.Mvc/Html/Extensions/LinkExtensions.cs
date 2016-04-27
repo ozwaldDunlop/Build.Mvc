@@ -48,9 +48,8 @@ namespace Build.Mvc.Html
         public static INavigationBuilder BuildActionLink(this HtmlHelper htmlHelper,
                                                          string linkText)
         {
-            return new LinkBuilder
+            return new LinkBuilder(htmlHelper)
                        {
-                           Html = htmlHelper,
                            LinkText = linkText
                        };
         }
@@ -62,9 +61,8 @@ namespace Build.Mvc.Html
                                                          string linkText,
                                                          [AspMvcAction] string actionName)
         {
-            return new LinkBuilder
+            return new LinkBuilder(htmlHelper)
                        {
-                           Html = htmlHelper,
                            LinkText = linkText
                        }.
                 ActionName(actionName);
@@ -78,9 +76,8 @@ namespace Build.Mvc.Html
                                                          [AspMvcAction] string actionName,
                                                          object routeValues)
         {
-            return new LinkBuilder
+            return new LinkBuilder(htmlHelper)
                        {
-                           Html = htmlHelper,
                            LinkText = linkText,
                            RouteValues = new RouteValueDictionary(routeValues)
                        }.
@@ -95,9 +92,8 @@ namespace Build.Mvc.Html
                                                          [AspMvcAction] string actionName,
                                                          [AspMvcController] string controllerName)
         {
-            return new LinkBuilder
+            return new LinkBuilder(htmlHelper)
                        {
-                           Html = htmlHelper,
                            LinkText = linkText
                        }.
                 ActionName(actionName).
@@ -112,9 +108,8 @@ namespace Build.Mvc.Html
                                                          [AspMvcAction] string actionName,
                                                          RouteValueDictionary routeValues)
         {
-            return new LinkBuilder
+            return new LinkBuilder(htmlHelper)
                        {
-                           Html = htmlHelper,
                            LinkText = linkText,
                            RouteValues = routeValues
                        }.ActionName(actionName);
@@ -129,9 +124,8 @@ namespace Build.Mvc.Html
                                                          object routeValues,
                                                          object htmlAttributes)
         {
-            return new LinkBuilder
+            return new LinkBuilder(htmlHelper)
                        {
-                           Html = htmlHelper,
                            LinkText = linkText,
                            RouteValues = new RouteValueDictionary(routeValues)
                        }.
@@ -148,7 +142,7 @@ namespace Build.Mvc.Html
                                                          RouteValueDictionary routeValues,
                                                          IDictionary<string, object> htmlAttributes)
         {
-            return new LinkBuilder {Html = htmlHelper, LinkText = linkText, RouteValues = routeValues}.ActionName(actionName).Attr(htmlAttributes);
+            return new LinkBuilder(htmlHelper) { LinkText = linkText, RouteValues = routeValues}.ActionName(actionName).Attr(htmlAttributes);
         }
 
         /// <summary>
@@ -161,9 +155,8 @@ namespace Build.Mvc.Html
                                                          object routeValues,
                                                          object htmlAttributes)
         {
-            return new LinkBuilder
+            return new LinkBuilder(htmlHelper)
                        {
-                           Html = htmlHelper,
                            LinkText = linkText,
                            RouteValues = new RouteValueDictionary(routeValues)
                        }.
@@ -182,9 +175,8 @@ namespace Build.Mvc.Html
                                                          RouteValueDictionary routeValues,
                                                          IDictionary<string, object> htmlAttributes)
         {
-            return new LinkBuilder
+            return new LinkBuilder(htmlHelper)
                        {
-                           Html = htmlHelper,
                            LinkText = linkText,
                            RouteValues = routeValues
                        }.
@@ -201,9 +193,8 @@ namespace Build.Mvc.Html
                                                         string linkText,
                                                         object routeValues)
         {
-            return new LinkBuilder
+            return new LinkBuilder(htmlHelper)
                        {
-                           Html = htmlHelper,
                            LinkText = linkText,
                            RouteValues = new RouteValueDictionary(routeValues)
                        };
@@ -216,9 +207,8 @@ namespace Build.Mvc.Html
                                                         string linkText,
                                                         string routeName)
         {
-            return new LinkBuilder
+            return new LinkBuilder(htmlHelper)
                        {
-                           Html = htmlHelper,
                            LinkText = linkText
                        }.
                 RouteName(routeName);
@@ -231,9 +221,8 @@ namespace Build.Mvc.Html
                                                         string linkText,
                                                         RouteValueDictionary routeValues)
         {
-            return new LinkBuilder
+            return new LinkBuilder(htmlHelper)
                        {
-                           Html = htmlHelper,
                            LinkText = linkText,
                            RouteValues = routeValues
                        };
@@ -247,9 +236,8 @@ namespace Build.Mvc.Html
                                                         object routeValues,
                                                         object htmlAttributes)
         {
-            return new LinkBuilder
+            return new LinkBuilder(htmlHelper)
                        {
-                           Html = htmlHelper,
                            LinkText = linkText,
                            RouteValues = new RouteValueDictionary(routeValues)
                        }.
@@ -264,9 +252,8 @@ namespace Build.Mvc.Html
                                                         string routeName,
                                                         object routeValues)
         {
-            return new LinkBuilder
+            return new LinkBuilder(htmlHelper)
                        {
-                           Html = htmlHelper,
                            LinkText = linkText,
                            RouteValues = new RouteValueDictionary(routeValues)
                        }.
@@ -281,9 +268,8 @@ namespace Build.Mvc.Html
                                                         string routeName,
                                                         RouteValueDictionary routeValues)
         {
-            return new LinkBuilder
+            return new LinkBuilder(htmlHelper)
                        {
-                           Html = htmlHelper,
                            LinkText = linkText,
                            RouteValues = routeValues
                        }.
@@ -298,9 +284,8 @@ namespace Build.Mvc.Html
                                                         RouteValueDictionary routeValues,
                                                         IDictionary<string, object> htmlAttributes)
         {
-            return new LinkBuilder
+            return new LinkBuilder(htmlHelper)
                        {
-                           Html = htmlHelper,
                            LinkText = linkText,
                            RouteValues = routeValues
                        }.
@@ -316,9 +301,8 @@ namespace Build.Mvc.Html
                                                         object routeValues,
                                                         object htmlAttributes)
         {
-            return new LinkBuilder
+            return new LinkBuilder(htmlHelper)
                        {
-                           Html = htmlHelper,
                            LinkText = linkText,
                            RouteValues = new RouteValueDictionary(routeValues)
                        }.
@@ -335,9 +319,8 @@ namespace Build.Mvc.Html
                                                         RouteValueDictionary routeValues,
                                                         IDictionary<string, object> htmlAttributes)
         {
-            return new LinkBuilder
+            return new LinkBuilder(htmlHelper)
                        {
-                           Html = htmlHelper,
                            LinkText = linkText,
                            RouteValues = routeValues
                        }.

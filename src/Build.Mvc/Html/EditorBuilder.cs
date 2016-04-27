@@ -13,6 +13,8 @@
 // It is pitch black. You are likely to be eaten by a grue.
 // 
 
+using System.Web.Mvc;
+
 namespace Build.Mvc.Html
 {
     using System.Web.Mvc.Html;
@@ -28,6 +30,10 @@ namespace Build.Mvc.Html
         {
             return Html.EditorFor(InitExpression, this.TemplateName(), this.HtmlFieldName(), this.AdditionalViewData()).ToHtmlStringSafe();
         }
+
+        public EditorBuilder(HtmlHelper<TModel> htmlHelper) : base(htmlHelper)
+        {
+        }
     }
 
     /// <summary>
@@ -38,6 +44,10 @@ namespace Build.Mvc.Html
         public override string ToHtmlString()
         {
             return Html.Editor(this.Expression(), this.TemplateName(), this.HtmlFieldName(), this.AdditionalViewData()).ToHtmlStringSafe();
+        }
+
+        public EditorBuilder(HtmlHelper htmlHelper) : base(htmlHelper)
+        {
         }
     }
 }

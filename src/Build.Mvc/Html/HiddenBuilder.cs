@@ -12,6 +12,8 @@
 // 
 // It is pitch black. You are likely to be eaten by a grue.
 // 
+
+using System.Web.Mvc;
 using System.Web.Mvc.Html;
 
 namespace Build.Mvc.Html
@@ -27,6 +29,10 @@ namespace Build.Mvc.Html
         {
             return Html.HiddenFor(InitExpression, HtmlAttributes).ToHtmlStringSafe();
         }
+
+        public HiddenBuilder(HtmlHelper<TModel> htmlHelper) : base(htmlHelper)
+        {
+        }
     }
 
     /// <summary>
@@ -37,6 +43,10 @@ namespace Build.Mvc.Html
         public override string ToHtmlString()
         {
             return Html.Hidden(this.Name(), this.Val(), HtmlAttributes).ToHtmlStringSafe();
+        }
+
+        public HiddenBuilder(HtmlHelper htmlHelper) : base(htmlHelper)
+        {
         }
     }
 }

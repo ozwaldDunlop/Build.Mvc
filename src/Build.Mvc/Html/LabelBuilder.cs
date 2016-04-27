@@ -13,6 +13,7 @@
 // It is pitch black. You are likely to be eaten by a grue.
 // 
 
+using System.Web.Mvc;
 using System.Web.Mvc.Html;
 
 namespace Build.Mvc.Html
@@ -27,6 +28,10 @@ namespace Build.Mvc.Html
 		}
 
 		#endregion
+
+	    public LabelBuilder(HtmlHelper<TModel> htmlHelper) : base(htmlHelper)
+	    {
+	    }
 	}
 
 	public class LabelBuilder : FormInputBuilder, ILabelBuilder, IExpressionBuilder
@@ -39,5 +44,9 @@ namespace Build.Mvc.Html
 		}
 
 		#endregion
+
+	    public LabelBuilder(HtmlHelper htmlHelper) : base(htmlHelper)
+	    {
+	    }
 	}
 }

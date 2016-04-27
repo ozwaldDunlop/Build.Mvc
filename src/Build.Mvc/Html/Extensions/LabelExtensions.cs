@@ -32,7 +32,7 @@ namespace Build.Mvc.Html
                                                string expression,
                                                IDictionary<string, object> htmlAttributes)
         {
-            return new LabelBuilder {Html = html}.Expression(expression).Attr(htmlAttributes);
+            return new LabelBuilder(html) .Expression(expression).Attr(htmlAttributes);
         }
 
         public static ILabelBuilder BuildLabel(this HtmlHelper html,
@@ -40,7 +40,7 @@ namespace Build.Mvc.Html
                                                string labelText,
                                                object htmlAttributes)
         {
-            return new LabelBuilder {Html = html}.Expression(expression).LabelText(labelText).Attr(HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+            return new LabelBuilder (html).Expression(expression).LabelText(labelText).Attr(HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
         }
 
         public static ILabelBuilder BuildLabel(this HtmlHelper html,
@@ -48,14 +48,14 @@ namespace Build.Mvc.Html
                                                string labelText,
                                                IDictionary<string, object> htmlAttributes)
         {
-            return new LabelBuilder {Html = html}.Expression(expression).LabelText(labelText).Attr(htmlAttributes);
+            return new LabelBuilder (html).Expression(expression).LabelText(labelText).Attr(htmlAttributes);
         }
 
         public static ILabelBuilder BuildLabel(this HtmlHelper html,
                                                string expression,
                                                object htmlAttributes)
         {
-            return new LabelBuilder {Html = html}.Expression(expression).Attr(HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+            return new LabelBuilder (html).Expression(expression).Attr(HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
         }
 
         /// <summary>
@@ -64,14 +64,14 @@ namespace Build.Mvc.Html
         public static ILabelBuilder BuildLabel(this HtmlHelper html,
                                                string expression)
         {
-            return new LabelBuilder {Html = html}.Expression(expression);
+            return new LabelBuilder (html).Expression(expression);
         }
 
         public static ILabelBuilder BuildLabel(this HtmlHelper html,
                                                string expression,
                                                string labelText)
         {
-            return new LabelBuilder {Html = html}.Expression(expression).LabelText(labelText);
+            return new LabelBuilder (html).Expression(expression).LabelText(labelText);
         }
 
         public static ILabelBuilder BuildLabelFor<TModel, TValue>(this HtmlHelper<TModel> html,
@@ -80,7 +80,7 @@ namespace Build.Mvc.Html
                                                                   object htmlAttributes)
         {
             return
-                new LabelBuilder<TModel, TValue> {Html = html, InitExpression = expression}.LabelText(labelText)
+                new LabelBuilder<TModel, TValue> (html){ InitExpression = expression}.LabelText(labelText)
                                                                                            .Attr(HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
         }
 
@@ -88,7 +88,7 @@ namespace Build.Mvc.Html
                                                                   Expression<Func<TModel, TValue>> expression,
                                                                   string labelText)
         {
-            return new LabelBuilder<TModel, TValue> {Html = html, InitExpression = expression}.LabelText(labelText);
+            return new LabelBuilder<TModel, TValue> (html){ InitExpression = expression}.LabelText(labelText);
         }
 
         public static ILabelBuilder BuildLabelFor<TModel, TValue>(this HtmlHelper<TModel> html,
@@ -96,27 +96,27 @@ namespace Build.Mvc.Html
                                                                   string labelText,
                                                                   IDictionary<string, object> htmlAttributes)
         {
-            return new LabelBuilder<TModel, TValue> {Html = html, InitExpression = expression}.LabelText(labelText).Attr(htmlAttributes);
+            return new LabelBuilder<TModel, TValue> (html){ InitExpression = expression}.LabelText(labelText).Attr(htmlAttributes);
         }
 
         public static ILabelBuilder BuildLabelFor<TModel, TValue>(this HtmlHelper<TModel> html,
                                                                   Expression<Func<TModel, TValue>> expression,
                                                                   object htmlAttributes)
         {
-            return new LabelBuilder<TModel, TValue> {Html = html, InitExpression = expression}.Attr(HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+            return new LabelBuilder<TModel, TValue> (html){ InitExpression = expression}.Attr(HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
         }
 
         public static ILabelBuilder BuildLabelFor<TModel, TValue>(this HtmlHelper<TModel> html,
                                                                   Expression<Func<TModel, TValue>> expression,
                                                                   IDictionary<string, object> htmlAttributes)
         {
-            return new LabelBuilder<TModel, TValue> {Html = html, InitExpression = expression}.Attr(htmlAttributes);
+            return new LabelBuilder<TModel, TValue> (html){ InitExpression = expression}.Attr(htmlAttributes);
         }
 
         public static ILabelBuilder BuildLabelFor<TModel, TValue>(this HtmlHelper<TModel> html,
                                                                   Expression<Func<TModel, TValue>> expression)
         {
-            return new LabelBuilder<TModel, TValue> {Html = html, InitExpression = expression};
+            return new LabelBuilder<TModel, TValue> (html){ InitExpression = expression};
         }
     }
 }

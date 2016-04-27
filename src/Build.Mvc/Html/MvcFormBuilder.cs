@@ -32,7 +32,7 @@ namespace Build.Mvc.Html
         /// <summary>
         /// Initializes a new instance of the <see cref="MvcFormBuilder"/> class.
         /// </summary>
-        public MvcFormBuilder()
+        public MvcFormBuilder(HtmlHelper htmlHelper) : base(htmlHelper)
         {
             this.Prop("FormMethod", FormMethod.Post);
             this.IncludeImplicitMvcValues(true);

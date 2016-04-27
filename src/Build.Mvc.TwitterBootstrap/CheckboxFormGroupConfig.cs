@@ -33,7 +33,7 @@ namespace Build.Mvc.TwitterBootstrap
 
         public override IHtmlString RenderLabel()
         {
-            return new CheckboxLabelBuilder<TModel> {Html = Html, InitExpression = InitExpression}.
+            return new CheckboxLabelBuilder<TModel>(Html) {InitExpression = InitExpression}.
                 WithCheckbox(CheckBoxModifier).
                 BuildWith(LabelModifier);
         }
@@ -67,7 +67,7 @@ namespace Build.Mvc.TwitterBootstrap
 
         public override IHtmlString RenderLabel()
         {
-            return new CheckboxLabelBuilder {Html = Html}.
+            return new CheckboxLabelBuilder (Html).
                 Named(InitExpression).
                 WithCheckbox(CheckBoxModifier).
                 BuildWith(LabelModifier);

@@ -17,13 +17,13 @@ namespace Build.Mvc.TwitterBootstrap.Helpers
 
             if (readOnlyMode || labelWithHiddenFieldMode)
             {
-                var builder = new HtmlTagBuilder("div");
+                var builder = new HtmlTagBuilder(html,"div");
 
                 builder.Attr(selectListBuilder.HtmlAttributes);
 
                 IEnumerable<SelectListItem> selectList = SelectListHelper.GetSelectListItems(html, selectListBuilder, expressionText);
 
-                builder.InternalBuilder.InnerHtml = GetDisplayText(selectList);
+                builder.InternalBuilder.InnerHtml = GetDisplayText(html,selectList);
 
                 if (labelWithHiddenFieldMode)
                 {
@@ -36,13 +36,13 @@ namespace Build.Mvc.TwitterBootstrap.Helpers
             return selectListBuilder.AddClass("form-control");
         }
 
-        private static string GetDisplayText(IEnumerable<SelectListItem> selectList)
+        private static string GetDisplayText(HtmlHelper html, IEnumerable<SelectListItem> selectList)
         {
             var stringBuilder = new StringBuilder();
 
             foreach (SelectListItem selectListItem in selectList.Where(x => x.Selected))
             {
-                var builder = new HtmlTagBuilder("p");
+                var builder = new HtmlTagBuilder(html,"p");
                 builder.AddClass("form-control-static");
                 builder.InternalBuilder.SetInnerText(selectListItem.Text);
                 stringBuilder.Append(builder.ToHtmlString());

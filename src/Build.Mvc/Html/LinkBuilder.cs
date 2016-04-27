@@ -73,5 +73,9 @@ namespace Build.Mvc.Html
             }
             return Html.RouteLink(LinkText, RouteValues, HtmlAttributes);
         }
+
+        public LinkBuilder(HtmlHelper htmlHelper) : base(htmlHelper)
+        {
+        }
     }
 }

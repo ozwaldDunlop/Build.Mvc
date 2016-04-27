@@ -48,7 +48,7 @@ namespace Build.Mvc.Html
                                                                        string validationMessage,
                                                                        IDictionary<string, object> htmlAttributes)
         {
-            return new ValidationMessageBuilder {Html = htmlHelper}.ModelName(modelName).Message(validationMessage).Attr(htmlAttributes);
+            return new ValidationMessageBuilder(htmlHelper).ModelName(modelName).Message(validationMessage).Attr(htmlAttributes);
         }
 
         public static IValidationMessageBuilder BuildValidationMessage(this HtmlHelper htmlHelper,
@@ -115,7 +115,7 @@ namespace Build.Mvc.Html
                                                                                              IDictionary<string, object> htmlAttributes)
         {
             return
-                new ValidationMessageBuilder<TModel, TProperty> {Html = htmlHelper, InitExpression = expression}.Message(validationMessage).Attr(htmlAttributes);
+                new ValidationMessageBuilder<TModel, TProperty>(htmlHelper) {InitExpression = expression}.Message(validationMessage).Attr(htmlAttributes);
         }
 
         public static IValidationSummaryBuilder BuildValidationSummary(this HtmlHelper htmlHelper,
@@ -161,7 +161,7 @@ namespace Build.Mvc.Html
                                                                        string message,
                                                                        IDictionary<string, object> htmlAttributes)
         {
-            return new ValidationSummaryBuilder {Html = htmlHelper}.ExcludePropertyErrors(excludePropertyErrors).Message(message).Attr(htmlAttributes);
+            return new ValidationSummaryBuilder(htmlHelper).ExcludePropertyErrors(excludePropertyErrors).Message(message).Attr(htmlAttributes);
         }
 
         public static IValidationSummaryBuilder BuildValidationSummary(this HtmlHelper htmlHelper,

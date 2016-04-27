@@ -29,7 +29,7 @@ namespace Build.Mvc.Html
         public static IButtonBuilder BuildButton(this HtmlHelper htmlHelper,
                                                  string buttonText)
         {
-            return new ButtonBuilder {Html = htmlHelper}.Val(buttonText);
+            return new ButtonBuilder(htmlHelper).Val(buttonText);
         }
 
         /// <summary>

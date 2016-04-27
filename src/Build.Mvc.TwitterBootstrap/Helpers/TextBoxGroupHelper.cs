@@ -15,7 +15,7 @@ namespace Build.Mvc.TwitterBootstrap.Helpers
             {
                 var value = valueFactory();
 
-                var builder = new HtmlTagBuilder("p");
+                var builder = new HtmlTagBuilder(html,"p");
                 builder.Attr(textBoxBuilder.HtmlAttributes);
                 builder.AddClass("form-control-static");
                 builder.InternalBuilder.SetInnerText(html.FormatValue(value, textBoxBuilder.Format()));

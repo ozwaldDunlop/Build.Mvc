@@ -12,6 +12,8 @@
 // 
 // It is pitch black. You are likely to be eaten by a grue.
 // 
+
+using System.Web.Mvc;
 using System.Web.Mvc.Html;
 
 namespace Build.Mvc.Html
@@ -22,6 +24,10 @@ namespace Build.Mvc.Html
     /// <typeparam name="TModel">The type of the model.</typeparam>
     public class CheckBoxBuilder<TModel> : FormInputBuilder<TModel, bool>, ICheckBoxBuilder
     {
+        public CheckBoxBuilder(HtmlHelper<TModel> htmlHelper) : base(htmlHelper)
+        {
+        }
+
         public override string ToHtmlString()
         {
             return Html.CheckBoxFor(InitExpression, HtmlAttributes).ToHtmlStringSafe();
@@ -36,6 +42,10 @@ namespace Build.Mvc.Html
         public override string ToHtmlString()
         {
             return Html.CheckBox(this.Name(), this.IsChecked().GetValueOrDefault(), HtmlAttributes).ToHtmlStringSafe();
+        }
+
+        public CheckBoxBuilder(HtmlHelper htmlHelper) : base(htmlHelper)
+        {
         }
     }
 }
